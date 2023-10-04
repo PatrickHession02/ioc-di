@@ -18,8 +18,9 @@ public class UserService {
         {
             return false;
         }
+
+        private boolean isEmailRegistered(String email){
+            return UserRepository.stream().anyMatch(u -> u.getEmail().equals(email));
+        }
     }
-
-
-
 }

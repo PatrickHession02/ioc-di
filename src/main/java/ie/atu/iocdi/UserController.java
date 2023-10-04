@@ -1,6 +1,7 @@
 package ie.atu.iocdi;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +24,12 @@ public class UserController {
         user.setName(name);
         boolean registrationSuccessful = userService.registerUser(user);
 
+        if (registrationSuccessful) {
+            return ResponseEntity.ok("Registration Successful");
+        }else{
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Registration Unsuccessful");
 
+        }
 
     }
 

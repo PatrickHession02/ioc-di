@@ -1,13 +1,15 @@
 package ie.atu.iocdi;
 
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserService {
-    private List<User> C = new ArrayList<>();
+    private final EmailService emailService;
+    private List<User> UserRepository = new ArrayList<>();
 
     public boolean registerUser(User user){
         if (!isEmailRegistered(user.getEmail())){

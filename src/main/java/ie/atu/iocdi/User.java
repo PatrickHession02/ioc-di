@@ -1,7 +1,14 @@
 package ie.atu.iocdi;
 
-public class User {
-    private String email; //sets up email string
-    private String name; //sets up Name
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 
+public class User
+{
+    private String name;
+    private String email;
 }

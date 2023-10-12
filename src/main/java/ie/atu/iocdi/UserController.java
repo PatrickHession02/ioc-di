@@ -26,7 +26,7 @@ public class UserController {
     @PostMapping("/registerUserBody")
     @ResponseStatus(HttpStatus.CREATED)
     public User userBody(@RequestBody User user){
-        System.outprintln("Username:" + user.getName());
+        System.out.println("Username:" + user.getName());
         System.out.println("User email:"+ user.getEmail());
         return user;
     }
